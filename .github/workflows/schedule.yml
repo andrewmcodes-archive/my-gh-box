@@ -4,16 +4,16 @@ on:
   schedule:
     - cron: "0 * * * *"
   push:
-    branches: master
+    branches: base
 
 jobs:
   update-gist:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Update gist
-        uses: yg/gh-box@master
+        uses: yg/gh-box@v1.0.5
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
